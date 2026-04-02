@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World!</h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KK LOTTO GPT HACKS - V70 PRO</title>
+    <style>
+        /* CONFIGURATION FROM README.MD */
+        /* Home: https://kklotto.me/#/ [cite: 1] */
+        /* Register: https://kklotto.me/#/register?invitationCode=82250130089 [cite: 1] */
+        /* Matching: WinGo_30S [cite: 1] */
+
+        :root {
+            --jelly-bg: #000212;
+            --neon-blue: #00d2ff;
+            --aura-glow: #004e92;
+            --white-flash: #ffffff;
+            --pink-vibe: #ff007b;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background: #000;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        #game-view {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+            z-index: 1;
+        }
+
+        /* --- LOGO WITH DYNAMIC RING --- */
+        #logo-container {
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            width: 65px;
+            height: 65px;
+            z-index: 10000;
+            cursor: move;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #logo-container::before {
+            content: "";
+            position: absolute;
+            width: 75px; height: 75px;
+            border: 4px solid transparent;
+            border-top: 4px solid var(--aura-glow);
+            border-bottom: 4px solid var(--neon-blue);
+            border-radius: 50%;
+            animation: ring-rotate 1.2s linear infinite;
+        }
+
+        @keyframes ring-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #main-logo {
+            width: 55px; height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        /* --- HACK PANEL WITH ADVANCED AURA --- */
+        #drag-container {
+            position: absolute;
+            top: 120px;
+            right: 20px;
+            width: 205px;
+            z-index: 9999;
+            display: none;
+        }
+
+        #jelly-panel {
+            width: 100%;
+            background: radial-gradient(circle, var(--aura-glow), var(--jelly-bg));
+            border: 2px solid var(--neon-blue);
+            border-radius: 25px;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            user-select: none;
+            position: relative;
+            cursor: move;
+            animation: aura-pulse 2s infinite ease-in-out, jelly-morph 5s infinite ease-in-out;
+            backdrop-filter: blur(20px);
+        }
+
+        @keyframes aura-pulse {
+            0%, 100% { box-shadow: 0 0 25px var(--aura-glow), inset 0 0 12px var(--neon-blue); }
+            50% { box-shadow: 0 0 55px var(--aura-glow), 0 0 25px var(--neon-blue), inset 0 0 20px var(--white-flash); }
+        }
+
+        @keyframes jelly-morph {
+            0%, 100% { transform: scale(1); border-radius: 25px; }
+            50% { transform: scale(1.02); border-radius: 35px 20px 35px 20px; }
+        }
+
+        .panel-header {
+            font-size: 11px;
+            font-weight: 900;
+            text-shadow: 0 0 8px var(--neon-blue);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+        }
+
+        .id-display {
+            font-size: 10px;
+            background: rgba(0,0,0,0.85);
+            padding: 5px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid var(--aura-glow);
+        }
+
+        .result-screen {
+            position: relative;
+            height: 85px;
+            background: rgba(0,0,0,0.65);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: inset 0 0 15px #000;
+        }
+
+        #p-text { font-size: 38px; font-weight: 900; z-index: 2; transition: color 0.5s; }
+        #n-text { font-size: 26px; color: #ffd700; z-index: 2; font-weight: bold; margin-top: -3px; }
+
+        .strike-layer {
+            position: absolute;
+            width: 6px; height: 300%;
+            background: var(--white-flash);
+            box-shadow: 0 0 25px var(--white-flash);
+            top: -100%; left: -150%;
+            transform: rotate(35deg);
+            opacity: 0;
+            z-index: 3;
+        }
+
+        .active-strike { animation: strike-move 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        @keyframes strike-move { 0% { left: -150%; opacity: 1; } 100% { left: 250%; opacity: 0; } }
+
+        .btn-main {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: linear-gradient(90deg, #001f3f, #00d2ff, #001f3f);
+            background-size: 200% auto;
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--neon-blue); }
+
+        .btn-close {
+            background: rgba(255, 0, 0, 0.25);
+            border: 1px solid red;
+            color: white;
+            font-size: 9px;
+            margin-top: 10px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <iframe src="https://kklotto.me/#/register?invitationCode=82250130089" id="game-view"></iframe>
+
+    <div id="logo-container" onclick="togglePanel()">
+        <img src="https://uploads.onecompiler.io/447679hw7/44hwjp49v/KE%20Eagle%20with%20wealth%20and%20power.png" id="main-logo" alt="Logo">
+    </div>
+
+    <div id="drag-container">
+        <div id="jelly-panel">
+            <div class="panel-header">KK LOTTO JMC V70 PRO</div>
+            
+            <div class="id-display">
+                PERIOD: <span id="p-id-bs">LOADING...</span>
+            </div>
+
+            <div class="result-screen">
+                <div class="strike-layer" id="lightning"></div>
+                <div id="p-text">READY</div>
+                <div id="n-text">--</div>
+            </div>
+
+            <button class="btn-main" onclick="runAdvancedJMC()">GET WIN-GO PREDICTION</button>
+            <button class="btn-close" onclick="togglePanel()">CLOSE SYSTEM</button>
+            
+            <div style="font-size: 8px; margin-top: 10px; color: #00ffcc; font-weight: bold;">
+                ● WINGO_30S ALGO ACTIVE ●
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data from README.MD [cite: 1]
+        const config = {
+            home: "https://kklotto.me/#/",
+            register: "https://kklotto.me/#/register?invitationCode=82250130089",
+            wallet: "https://kklotto.me/#/wallet",
+            game: "WinGo_30S"
+        };
+
+        function updateTimer() {
+            const d = new Date();
+            const id = d.getUTCFullYear() + "" + String(d.getUTCMonth() + 1).padStart(2, '0') + 
+                       String(d.getUTCDate()).padStart(2, '0') + "01" + 
+                       String((d.getUTCHours() * 60) + d.getUTCMinutes() + 1).padStart(4, '0');
+            document.getElementById("p-id-bs").innerText = id;
+            return id;
+        }
+        setInterval(updateTimer, 1000);
+
+        function togglePanel() {
+            const panel = document.getElementById('drag-container');
+            panel.style.display = (panel.style.display === "none" || panel.style.display === "") ? "block" : "none";
+        }
+
+        // --- HEAVY JMC SCRIPT ALGORITHM ---
+        function runAdvancedJMC() {
+            const bolt = document.getElementById("lightning");
+            const pRes = document.getElementById("p-text");
+            const nRes = document.getElementById("n-text");
+            const currentID = updateTimer();
+
+            bolt.classList.remove("active-strike");
+            void bolt.offsetWidth; 
+            bolt.classList.add("active-strike");
+
+            pRes.innerText = "ANALYZING...";
+            pRes.style.fontSize = "18px";
+
+            setTimeout(() => {
+                const idSuffix = parseInt(currentID.slice(-4));
+                const now = new Date();
+                const seconds = now.getSeconds();
+                const ms = now.getMilliseconds();
+                const compositeKey = (idSuffix * (seconds + 7)) + (ms % 13);
+                
+                const luckyNum = (compositeKey % 10);
+                const isBig = (luckyNum >= 5);
+                const result = isBig ? "BIG" : "SMALL";
+
+                pRes.style.fontSize = "38px";
+                pRes.innerText = result;
+                pRes.style.color = isBig ? "var(--neon-blue)" : "var(--pink-vibe)";
+                nRes.innerText = luckyNum;
+            }, 650);
+        }
+
+        // Draggable System
+        function enableDrag(handle, container) {
+            let drag = false, ox, oy;
+            const startDrag = (e) => {
+                if(e.target.tagName === "BUTTON") return;
+                drag = true;
+                const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+                ox = clientX - container.offsetLeft;
+                oy = clientY - container.offsetTop;
+            };
+            const moveDrag = (e) => {
+                if (drag) {
+                    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                    const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+                    container.style.left = (clientX - ox) + 'px';
+                    container.style.top = (clientY - oy) + 'px';
+                    container.style.right = 'auto';
+                }
+            };
+            handle.addEventListener('mousedown', startDrag);
+            handle.addEventListener('touchstart', startDrag);
+            document.addEventListener('mousemove', moveDrag);
+            document.addEventListener('touchmove', moveDrag);
+            document.addEventListener('mouseup', () => drag = false);
+            document.addEventListener('touchend', () => drag = false);
+        }
+
+        enableDrag(document.getElementById('logo-container'), document.getElementById('logo-container'));
+        enableDrag(document.getElementById('jelly-panel'), document.getElementById('drag-container'));
+
+    </script>
+</body>
+</html>
